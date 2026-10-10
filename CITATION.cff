@@ -3,6 +3,7 @@ message: Cite this software using the metadata below.
 type: software
 title: 'AlterSplicINF methods release: resource-aware RNA-seq preprocessing'
 version: 1.0.0
+date-released: 2026-10-10
 repository-code: https://github.com/YasinsYar/AlterSplicINF
 authors:
 - family-names: Yasinskyi
