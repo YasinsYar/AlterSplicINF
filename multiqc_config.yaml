@@ -1,0 +1,12 @@
+title: "AlterSplicINF six-library methods benchmark"
+subtitle: "GENCODE v50 primary-assembly reference and stranded RNA-seq preprocessing"
+intro_text: >
+  Technical quality-control report for the frozen six-library methods study.
+  This report contains no differential biological tests.
+report_header_info:
+  - Scope: "Technical preprocessing and computational repeatability"
+  - Libraries: "6 (3 PE100 organoid; 3 SE75 TIGK)"
+  - featureCounts: "reverse stranded (-s 2)"
+  - regtools: "PE RF; SE XS from STAR intronMotif"
+show_analysis_paths: false
+show_analysis_time: true

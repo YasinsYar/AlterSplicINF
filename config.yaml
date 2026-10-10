@@ -1,0 +1,104 @@
+branch: A_methods_reproducibility
+analysis_release: "1.0.0"
+
+paths:
+  # Relative values are resolved from data_root. Pass -HostData/--data-root to
+  # keep large data outside this compact code release.
+  data_root: data
+  data_results: results/branch_A_methods
+  data_work: work/branch_A_methods
+  data_logs: logs/branch_A_methods
+  code_outputs: outputs
+
+reference:
+  fasta: GRCh38.primary_assembly.genome.fa
+  fasta_gz: GRCh38.primary_assembly.genome.fa.gz
+  fasta_url: https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_50/GRCh38.primary_assembly.genome.fa.gz
+  fasta_sha256: e49b92b3e4f321bf254c042f25b726d9931c4d74c7523e8b6bb530e63b0cfd4b
+  gtf: gencode.v50.primary_assembly.annotation.gtf
+  gtf_gz: gencode.v50.primary_assembly.annotation.gtf.gz
+  gtf_url: https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_50/gencode.v50.primary_assembly.annotation.gtf.gz
+  md5sums_url: https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_50/MD5SUMS
+  gtf_sha256: 04af7379ad6c214f49758db270938a38c41bebbf7b9dc8e24065d8f3a9f08d0d
+  gtf_gz_md5: 289b91e5e95e8b0450d223246f10a12e
+  star_index: star_index_oh99_pri
+  sjdbOverhang: 99
+  genomeSAsparseD: 2
+  limit_genome_generate_ram_bytes: 25000000000
+
+library:
+  featurecounts_s: 2
+  regtools_strand: RF
+  regtools_strand_se: XS
+  rseqc_bed: rseqc_genes_pri.bed
+  star_twopass_mode: Basic
+  star_out_sam_strand_field: intronMotif
+  regtools_anchor: 8
+  regtools_min_intron: 50
+  regtools_max_intron: 500000
+
+resources:
+  threads: 8
+  star_memory_gb: 26
+  minimum_free_gb: 40
+  sample_concurrency: 1
+  monitor_interval_seconds: 2
+  stage_memory_gb:
+    prefetch: 8
+    fasterq: 12
+    compression: 4
+    fastqc: 4
+    star: 26
+    samtools: 4
+    featurecounts: 8
+    regtools: 4
+    rseqc: 8
+    multiqc: 4
+
+reprocheck:
+  sample_id: 5INA
+  srr: SRR17259692
+  layout: PAIRED
+  fresh_from_sra: true
+  strand_benchmark_modes: [0, 1, 2]
+  result_namespace: branch_A_methods_repeat_pe
+  log_namespace: repeat_pe
+
+reprocheck_se:
+  sample_id: TIGK_Unstim_1
+  srr: SRR15972644
+  layout: SINGLE
+  # Descriptive input metadata; these values do not constrain FASTQ processing.
+  nominal_read_length_nt: 75
+  observed_read_length_min_nt: 35
+  observed_read_length_max_nt: 76
+  fresh_from_sra: true
+  result_namespace: branch_A_methods_repeat_se
+  log_namespace: repeat_se
+
+containers:
+  sra_tools: quay.io/biocontainers/sra-tools@sha256:6b70ac558675b5b319a18d828aba8f1e6bd940e4fb216928ece40e2b7583de90
+  pigz: quay.io/biocontainers/pigz@sha256:4c256586c0deb165a4675aba8cd6bbbec9b45fced5c5806af5b60b6be7303542
+  fastqc: quay.io/biocontainers/fastqc@sha256:e194048df39c3145d9b4e0a14f4da20b59d59250465b6f2a9cb698445fd45900
+  multiqc: quay.io/biocontainers/multiqc@sha256:64fa8caa046020780a7df765cdd27b459f20665578e6f1f240a12d415527adaa
+  star: quay.io/biocontainers/star@sha256:2da18df1fa9eb6137abdd933b0742169a44806db69549bdc214b19aaba7bfdcb
+  samtools: quay.io/biocontainers/samtools@sha256:783c6646029a306ec5e4162009dc1a20d8f6c528f7c380e5b4affbf12d9112e5
+  subread: quay.io/biocontainers/subread@sha256:114390a783c77f7739d86e474bedfa5a4e65309a2f71d4db430803fb04601f5d
+  regtools: quay.io/biocontainers/regtools@sha256:81a6b2faa245dd47f3f3c3444e6c4c3a6e0a112ea13fa943f61355b70ca390ba
+  rseqc: quay.io/biocontainers/rseqc@sha256:2720614d01ec268217e382e63d43044af7348b462f05201d83e257f9d065a210
+
+hardware:
+  host_os: Microsoft Windows 10 Pro 22H2 (10.0.19045, 64-bit)
+  wsl_version: 2.6.1.0
+  wsl_kernel: 6.6.87.2-microsoft-standard-WSL2
+  docker_desktop_version: 4.48.0 (207573)
+  docker_engine_version: 28.5.1
+  cpu_model: Intel Core i7-4800MQ @ 2.70 GHz
+  physical_cores: 4
+  logical_threads: 8
+  physical_ram_gib: 31.91
+  docker_cpu_limit: 8
+  docker_memory_gib: 27.41
+  data_storage_model: KODAK SSD X120 PRO 1TB
+  data_storage_type: SSD
+  data_filesystem: NTFS

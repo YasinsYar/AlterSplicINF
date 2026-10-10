@@ -1,0 +1,23 @@
+data/
+.venv/
+*.building.docx
+release/
+deposit/
+__pycache__/
+*.py[cod]
+*.bam
+*.bai
+*.fastq
+*.fastq.gz
+*.sra
+.DS_Store
+Thumbs.db
+.env
+.codex-work/
+*.tmp
+
+# Outputs and author materials are maintained outside the software release.
+outputs/
+submission/
+logs/
+work/

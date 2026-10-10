@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: Cite this software using the metadata below.
+type: software
+title: 'AlterSplicINF methods release: resource-aware RNA-seq preprocessing'
+version: 1.0.0
+repository-code: https://github.com/YasinsYar/AlterSplicINF
+authors:
+- family-names: Yasinskyi
+  given-names: Yaroslav
+  affiliation: Taras Shevchenko National University of Kyiv
+  orcid: https://orcid.org/0000-0002-4801-8678
+abstract: RNA-seq preprocessing with digest-pinned containers, splice-junction extraction,
+  QC and resource reports, and fresh-from-SRA repeatability checks.
+keywords:
+- RNA-seq
+- splice junctions
+- computational repeatability
+license: MIT
